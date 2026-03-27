@@ -1,6 +1,6 @@
 // Professional terminal animation with dynamic lines
 const terminalCmds = [
-    { cmd: "whoami", resp: "Abdelwahab Shandy | SOC Trainee | Security Researcher." },
+    { cmd: "whoami", resp: "Abdelwahab Shandy | June 2026 Graduate | SOC Trainee | IT Infrastructure | Technical Blogging" },
     { cmd: "cat interests.txt", resp: "SOC Analysis & Engineer | Digital Forensics | Threat Hunting | n8n & SOAR | CTF challenges" },
     { cmd: "git status", resp: "Currently: BI graduation project with AI pipelines." },
 ];
