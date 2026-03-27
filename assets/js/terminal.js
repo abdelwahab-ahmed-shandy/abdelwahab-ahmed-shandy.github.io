@@ -1,64 +1,70 @@
-// Professional terminal animation with dynamic lines
-const terminalCmds = [
-    { cmd: "whoami", resp: "Abdelwahab Shandy | June 2026 Graduate | SOC Trainee | IT Infrastructure | Technical Blogging" },
-    { cmd: "cat interests.txt", resp: "SOC Analysis & Engineer | Digital Forensics | Threat Hunting | n8n & SOAR | CTF challenges" },
-    { cmd: "git status", resp: "Open for hire. Seeking SOC Analyst or Security Engineer roles. Ready for internships and research collabs." },
-    { cmd: "Current Status", resp: "Currently: BI graduation project with AI pipelines." },
-];
-
-const terminalContainer = document.getElementById('dynamicTerminal');
-if (terminalContainer) {
-    terminalContainer.innerHTML = '';
-    let idx = 0;
-    function addTerminalLine() {
-        if (idx >= terminalCmds.length) {
-            const lastDiv = document.createElement('div');
-            lastDiv.className = 'terminal-line';
-            lastDiv.innerHTML = `<span class="prompt">➜</span> <span class="command">~</span> <span class="blink"></span>`;
-            terminalContainer.appendChild(lastDiv);
-            return;
-        }
-        const lineDiv = document.createElement('div');
-        lineDiv.className = 'terminal-line';
-        lineDiv.innerHTML = `<span class="prompt">➜</span> <span class="command"></span>`;
-        terminalContainer.appendChild(lineDiv);
-        const cmdSpan = lineDiv.querySelector('.command');
-        const fullCmd = terminalCmds[idx].cmd;
-        let i = 0;
-        const typeInterval = setInterval(() => {
-            if (i < fullCmd.length) {
-                cmdSpan.textContent += fullCmd[i];
-                i++;
-            } else {
-                clearInterval(typeInterval);
-                const respP = document.createElement('p');
-                respP.className = 'response';
-                respP.textContent = terminalCmds[idx].resp;
-                lineDiv.appendChild(respP);
-                idx++;
-                setTimeout(addTerminalLine, 500);
-            }
-        }, 55);
-    }
-    addTerminalLine();
-}
-
-// smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === "#" || targetId === "") return;
-        const target = document.querySelector(targetId);
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-// Enhanced Projects Functionality
+// Terminal animation with dynamic lines
 document.addEventListener('DOMContentLoaded', function() {
-    // More Details Dropdown Toggle
+    // Enhanced Terminal Commands
+    const terminalCmds = [
+        { cmd: "whoami", resp: "Abdelwahab Shandy | June 2026 Graduate | SOC Trainee | IT Infrastructure" },
+        { cmd: "cat interests.txt", resp: "SOC Analysis | Digital Forensics | Threat Hunting | n8n SOAR | CTF" },
+        { cmd: "git status", resp: "Open for hire. Seeking SOC Analyst or Security Engineer roles." },
+        { cmd: "echo $status", resp: "Currently: Building Security Labs & Technical Blogging" },
+        { cmd: "ls certifications/", resp: "Google Cybersecurity & Information Technology" },   
+         ];
+    
+    const terminalContainer = document.getElementById('dynamicTerminal');
+    if (terminalContainer) {
+        terminalContainer.innerHTML = '';
+        let idx = 0;
+        
+        function addTerminalLine() {
+            if (idx >= terminalCmds.length) {
+                const lastDiv = document.createElement('div');
+                lastDiv.className = 'terminal-line';
+                lastDiv.innerHTML = `<span class="prompt">➜</span> <span class="command">~</span> <span class="blink"></span>`;
+                terminalContainer.appendChild(lastDiv);
+                return;
+            }
+            
+            const lineDiv = document.createElement('div');
+            lineDiv.className = 'terminal-line';
+            lineDiv.innerHTML = `<span class="prompt">➜</span> <span class="command"></span>`;
+            terminalContainer.appendChild(lineDiv);
+            
+            const cmdSpan = lineDiv.querySelector('.command');
+            const fullCmd = terminalCmds[idx].cmd;
+            let i = 0;
+            
+            const typeInterval = setInterval(() => {
+                if (i < fullCmd.length) {
+                    cmdSpan.textContent += fullCmd[i];
+                    i++;
+                } else {
+                    clearInterval(typeInterval);
+                    const respP = document.createElement('p');
+                    respP.className = 'response';
+                    respP.textContent = terminalCmds[idx].resp;
+                    lineDiv.appendChild(respP);
+                    idx++;
+                    setTimeout(addTerminalLine, 400);
+                }
+            }, 40);
+        }
+        
+        addTerminalLine();
+    }
+    
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === "#" || targetId === "") return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    
+    // More Details Dropdown
     const moreDetailsBtns = document.querySelectorAll('.more-details-btn');
     
     moreDetailsBtns.forEach(btn => {
@@ -108,21 +114,9 @@ document.addEventListener('DOMContentLoaded', function() {
             updateProjectVisibility(filterValue);
         });
     });
-});
-
-
-// Enhanced Hero Section JavaScript
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Dynamic Role Rotation
-    const roles = [
-        'SOC Trainee',
-        'Security Researcher',
-        'Network Security Analyst',
-        'IT Infrastructure Engineer',
-        'Technical Blogger'
-    ];
     
+    // Dynamic Role Rotation
+    const roles = ['SOC Trainee', 'Security Researcher', 'Network Security Analyst', 'IT Infrastructure Engineer', 'Technical Blogger'];
     let roleIndex = 0;
     const roleElement = document.getElementById('dynamicRole');
     
@@ -137,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
     
-    // CV Dropdown Toggle
+    // CV Dropdown
     const cvBtn = document.getElementById('cvBtn');
     const cvDropdown = document.getElementById('cvDropdown');
     
@@ -147,7 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cvDropdown.classList.toggle('show');
         });
         
-        // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!cvBtn.contains(e.target) && !cvDropdown.contains(e.target)) {
                 cvDropdown.classList.remove('show');
@@ -155,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Terminal Expand/Collapse
+    // Terminal Expand
     const expandBtn = document.getElementById('expandTerminal');
     const closeBtn = document.getElementById('closeTerminal');
     const terminalWindow = document.querySelector('.terminal-window');
@@ -163,27 +156,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (expandBtn && terminalWindow) {
         expandBtn.addEventListener('click', () => {
             terminalWindow.classList.add('expanded');
-            expandBtn.style.display = 'none';
-            closeBtn.style.display = 'inline-block';
+            if (expandBtn) expandBtn.style.display = 'none';
+            if (closeBtn) closeBtn.style.display = 'inline-block';
         });
     }
     
     if (closeBtn && terminalWindow) {
         closeBtn.addEventListener('click', () => {
             terminalWindow.classList.remove('expanded');
-            expandBtn.style.display = 'inline-block';
-            closeBtn.style.display = 'none';
+            if (expandBtn) expandBtn.style.display = 'inline-block';
+            if (closeBtn) closeBtn.style.display = 'none';
         });
     }
 });
-
-// Terminal Commands (from your existing terminal.js but enhanced)
-const terminalCommands = [
-    { cmd: "whoami", resp: "Abdelwahab Shandy | SOC Trainee |Security Researcher." },
-    { cmd: "cat skills.txt", resp: "SOC Analysis, Network Security, IT Infrastructure, n8n Automation, Python, C#, ELK Stack, pfSense" },
-    { cmd: "ls certifications/", resp: "SANS GSOC (In Progress), CCNA (In Progress), Security+ (Planning)" },
-    { cmd: "echo $status", resp: "Currently: Active SOC Trainee, Building Security Labs, Technical Blogging at Hashnode" },
-    { cmd: "cat experience.md", resp: "SOC Trainee at Security Operations Center | Hands-on with SIEM, Threat Hunting, Incident Response" },
-    { cmd: "git log --oneline -3", resp: "Building Enterprise Security Lab | SOC Home Lab | Enterprise Infrastructure Simulation" }
-];
-
