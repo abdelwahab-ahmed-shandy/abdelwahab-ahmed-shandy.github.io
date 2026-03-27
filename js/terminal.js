@@ -1,9 +1,8 @@
 // Professional terminal animation with dynamic lines
 const terminalCmds = [
-    { cmd: "whoami", resp: "Abdelwahab Shandy (AAS) | Information Systems Senior, Security Researcher." },
-    { cmd: "cat interests.txt", resp: "SOC Analysis | Digital Forensics | Threat Hunting | n8n & SOAR | CTF challenges" },
-    { cmd: "git status", resp: "Currently: SANS GSOC preparation & BI graduation project with AI pipelines." },
-    { cmd: "echo $portfolio_version", resp: "v2.0 — fully responsive, project images & interactive profile." }
+    { cmd: "whoami", resp: "Abdelwahab Shandy | SOC Trainee | Security Researcher." },
+    { cmd: "cat interests.txt", resp: "SOC Analysis & Engineer | Digital Forensics | Threat Hunting | n8n & SOAR | CTF challenges" },
+    { cmd: "git status", resp: "Currently: BI graduation project with AI pipelines." },
 ];
 
 const terminalContainer = document.getElementById('dynamicTerminal');
@@ -179,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Terminal Commands (from your existing terminal.js but enhanced)
 const terminalCommands = [
-    { cmd: "whoami", resp: "Abdelwahab Shandy | SOC Trainee | Security Researcher | June 2026 Graduate" },
+    { cmd: "whoami", resp: "Abdelwahab Shandy | SOC Trainee |Security Researcher." },
     { cmd: "cat skills.txt", resp: "SOC Analysis, Network Security, IT Infrastructure, n8n Automation, Python, C#, ELK Stack, pfSense" },
     { cmd: "ls certifications/", resp: "SANS GSOC (In Progress), CCNA (In Progress), Security+ (Planning)" },
     { cmd: "echo $status", resp: "Currently: Active SOC Trainee, Building Security Labs, Technical Blogging at Hashnode" },
