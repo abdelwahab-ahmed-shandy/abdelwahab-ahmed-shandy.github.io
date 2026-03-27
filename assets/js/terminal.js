@@ -2,7 +2,8 @@
 const terminalCmds = [
     { cmd: "whoami", resp: "Abdelwahab Shandy | June 2026 Graduate | SOC Trainee | IT Infrastructure | Technical Blogging" },
     { cmd: "cat interests.txt", resp: "SOC Analysis & Engineer | Digital Forensics | Threat Hunting | n8n & SOAR | CTF challenges" },
-    { cmd: "git status", resp: "Currently: BI graduation project with AI pipelines." },
+    { cmd: "git status", resp: "Open for hire. Seeking SOC Analyst or Security Engineer roles. Ready for internships and research collabs." },
+    { cmd: "Current Status", resp: "Currently: BI graduation project with AI pipelines." },
 ];
 
 const terminalContainer = document.getElementById('dynamicTerminal');
